@@ -1,0 +1,1 @@
+School informatics project. Open multiple windows that are connected to eachother.
