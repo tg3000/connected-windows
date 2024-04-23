@@ -50,8 +50,8 @@ public class ConnectionHandler {
                     try {
                         sockets.add(serverSocket.accept());
                         Thread.sleep(1);
-                    } catch(Exception ex) {
-                      ex.printStackTrace();
+                    } catch(Exception e) {
+                      throw new RuntimeException("");
                     }
                 }
             };
