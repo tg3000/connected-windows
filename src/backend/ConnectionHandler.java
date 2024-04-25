@@ -36,7 +36,7 @@ public class ConnectionHandler {
     
     private class Server {
         ServerSocket serverSocket = null;
-        ArrayList<Socket> sockets = new ArrayList<Socket>();
+        ArrayList<Socket> clientSockets = new ArrayList<Socket>();
 
         public Server() {
             try {
@@ -48,7 +48,7 @@ public class ConnectionHandler {
             Thread acceptConnections = new Thread(){
                 public void run() {
                     try {
-                        sockets.add(serverSocket.accept());
+                        clientSockets.add(serverSocket.accept());
                         Thread.sleep(1);
                     } catch(Exception e) {
                       throw new RuntimeException("");
@@ -61,21 +61,27 @@ public class ConnectionHandler {
     }
 
     private class Client {
-        Socket clientSocket;
+        Socket connToServer;
         OutputStream os;
 
         public Client() {
             try {
-                clientSocket = new Socket("localhost", port);
+                connToServer = new Socket("localhost", port);
             } catch(IOException e) {
                 throw new RuntimeException("Couldn't connect to server: %s", e);
             }
 
             try {
-                os = new ObjectOutputStream(clientSocket.getOutputStream());
+                os = new ObjectOutputStream(connToServer.getOutputStream());
             } catch(IOException e) {
                 throw new RuntimeException("Couldn't get outputstream: %s", e);
             }
+
+            sendMessage();
         }
+    }
+
+    public void sendMessage() {
+        
     }
 }
