@@ -3,10 +3,9 @@ package backend;
 import java.io.Serializable;
 
 public class ClientMessage implements Serializable{
-    public double[] cord;
-    public static final long serialVersionUID = 1234L;
+    public Coordinate coord;
 
     public ClientMessage(double x, double y) {
-        cord = new double[] {x, y};
+        coord = new Coordinate(x, y);
     }
 }

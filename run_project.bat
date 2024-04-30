@@ -1,1 +1,0 @@
-javaw -cp build/ Main 1234

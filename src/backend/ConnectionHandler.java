@@ -39,7 +39,7 @@ public class ConnectionHandler{
         ArrayList<Socket> clientSockets = new ArrayList<Socket>();
         ArrayList<ObjectOutputStream> outputStreams = new ArrayList<ObjectOutputStream>();
         ArrayList<ObjectInputStream> inputStreams = new ArrayList<ObjectInputStream>();
-        ArrayList<double[]> cords = new ArrayList<double[]>();
+        ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
         ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
 
         public Server() {
@@ -93,7 +93,7 @@ public class ConnectionHandler{
         private void sendPositions() {
             for (int i = 0; i < outputStreams.size(); i++) {
                 try {
-                    outputStreams.get(i).writeObject(new ServerMessage((double[][]) cords.toArray().clone(), i));
+                    outputStreams.get(i).writeObject(new ServerMessage(coords, i));
                 } catch(IOException e) {
                     throw new RuntimeException("Server couldn't write to client: %s", e);
                 }
@@ -110,15 +110,18 @@ public class ConnectionHandler{
 
             @Override
             public void run() {
+                System.out.printf("ClientHandler.run\n");
                 ObjectInputStream input = inputStreams.get(client_id);
                 try {
                     ClientMessage clientMessage = (ClientMessage) input.readObject();
-                    if (cords.size() >= client_id) {
-                        cords.add(clientMessage.cord);
+                    System.out.printf("Clienthandler.ReadObject\n");
+                    if (coords.size() >= client_id) {
+                        coords.add(clientMessage.coord);
                     } else {
-                        cords.set(client_id, clientMessage.cord);
+                        coords.set(client_id, clientMessage.coord);
                     }
                     sendPositions();
+                    System.out.printf("Clienthandler.SentPositions");
                 } catch(ClassNotFoundException e) {
                     throw new RuntimeException("Couldn't read input class: %s", e);
                 } catch (IOException e) {
