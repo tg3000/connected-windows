@@ -1,10 +1,10 @@
-package frontend;
+package com.tg3000.frontend;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import backend.ConnectionHandler;
+import com.tg3000.backend.ConnectionHandler;
 
 public class Window extends JFrame {
 

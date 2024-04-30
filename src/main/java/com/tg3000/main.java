@@ -1,4 +1,6 @@
-import frontend.Window;
+package com.tg3000;
+
+import com.tg3000.frontend.Window;
 
 class Main {
     public static void main(String[] args) {

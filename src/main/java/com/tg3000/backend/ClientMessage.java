@@ -1,4 +1,4 @@
-package backend;
+package com.tg3000.backend;
 
 import java.io.Serializable;
 
