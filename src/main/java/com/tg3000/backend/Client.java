@@ -40,9 +40,9 @@ public class Client{
                 try {
                     gotNewMessage((ServerMessage) inputStream.readObject());
                 } catch(ClassNotFoundException e) {
-                    throw new RuntimeException("ClassNotFoundException in at client: %s\n", e);
+                    throw new RuntimeException("ClassNotFoundException in client: %s\n", e);
                 } catch(IOException e) {
-                    System.out.printf("Closing client connection: %s\n", e);
+                    System.out.printf("Client closing connection with Server: %s\n", e);
                     closeConnection();
                     stopThread();
                 }
