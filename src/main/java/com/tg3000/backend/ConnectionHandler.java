@@ -110,18 +110,15 @@ public class ConnectionHandler{
 
             @Override
             public void run() {
-                System.out.printf("ClientHandler.run\n");
                 ObjectInputStream input = inputStreams.get(client_id);
                 try {
                     ClientMessage clientMessage = (ClientMessage) input.readObject();
-                    System.out.printf("Clienthandler.ReadObject\n");
                     if (coords.size() >= client_id) {
                         coords.add(clientMessage.coord);
                     } else {
                         coords.set(client_id, clientMessage.coord);
                     }
                     sendPositions();
-                    System.out.printf("Clienthandler.SentPositions");
                 } catch(ClassNotFoundException e) {
                     throw new RuntimeException("Couldn't read input class: %s", e);
                 } catch (IOException e) {

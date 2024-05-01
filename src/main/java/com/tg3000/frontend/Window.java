@@ -20,7 +20,6 @@ public class Window extends JFrame {
             public void componentMoved( ComponentEvent ce ) {
                 Point point = ce.getComponent().getLocation();
                 conHandler.client.clientPosChanged(point.getX(), point.getY());
-                System.out.println("test");
             }
         });
         setWindowProperties();
