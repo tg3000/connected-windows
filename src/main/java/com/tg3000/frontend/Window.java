@@ -4,22 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import com.tg3000.backend.ConnectionHandler;
+import com.tg3000.backend.Connection;
 
 public class Window extends JFrame {
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 700;
 
-    public ConnectionHandler conHandler;
+    public Connection connection;
 
     public Window(int connection_port, String host) {
-        conHandler = new ConnectionHandler(connection_port, host);
+        connection = new Connection(connection_port, host);
+
+
         this.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentMoved( ComponentEvent ce ) {
                 Point point = ce.getComponent().getLocation();
-                conHandler.client.clientPosChanged(point.getX(), point.getY());
+                connection.client.clientPosChanged(point.getX(), point.getY());
             }
         });
         setWindowProperties();

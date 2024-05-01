@@ -1,6 +1,8 @@
 /home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/ServerMessage.java
 /home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/Coordinate.java
+/home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/Server.java
 /home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/Main.java
 /home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/frontend/Window.java
+/home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/Connection.java
 /home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/ClientMessage.java
-/home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/ConnectionHandler.java
+/home/teodor/work/school-projects/connected-windows/src/main/java/com/tg3000/backend/Client.java
