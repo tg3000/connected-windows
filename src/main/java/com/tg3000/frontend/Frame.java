@@ -36,7 +36,7 @@ public class Frame extends JFrame {
         setUndecorated(true);
         setVisible(true);
 
-        // sets the "positions" Array and "ownPos" Coordinate to the new values, retrieved from server
+        // Sets the "positions" Array and "ownPos" Coordinate to the new values, retrieved from server
         CallBack callback = (positions, ownPos) -> {
             this.positions = positions;
             this.ownPos = ownPos;
@@ -45,7 +45,7 @@ public class Frame extends JFrame {
         connection = new Connection(port, host, callback);
         sendNewPos();
 
-        // listens for JFrame movement
+        // Listens for JFrame movement
         this.addComponentListener(new ComponentAdapter() {
             public void componentMoved(ComponentEvent e) {
                 sendNewPos();

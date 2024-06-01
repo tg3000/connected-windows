@@ -69,7 +69,7 @@ public class Server {
         sendPositions();
     }
 
-    // writes all current Frame positions as "ServerMessage"s to each client
+    // Writes all current Frame positions as "ServerMessage"s to each client
     private void sendPositions() {
         for (int i = 0; i < outputStreams.size(); i++) {
             try {
@@ -141,11 +141,11 @@ public class Server {
         public void run() {
             while (should_run) {
                 try {
-                    // accept connection
+                    // Accept connection
                     Socket curr_socket = serverSocket.accept();
                     synchronized (lock_clientSockets) {clientSockets.add(curr_socket);}
 
-                    // open streams
+                    // Open streams
                     synchronized (lock_inputStreams) {inputStreams.add(new ObjectInputStream(curr_socket.getInputStream()));}
                     synchronized (lock_outputStreams) {outputStreams.add(new ObjectOutputStream(curr_socket.getOutputStream()));}
                     
