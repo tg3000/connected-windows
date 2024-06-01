@@ -3,13 +3,29 @@ package com.tg3000.backend;
 import java.net.*;
 import java.io.*;
 
-public class Client{
+import com.tg3000.frontend.Frame.CallBack;
+
+// Client that handles communication to server
+// One instance of this programm will have both a server and client running
+public class Client {
     private Socket connToServer;
+
+    // One way stream to send data to server
     private ObjectOutputStream outputStream;
+
+    // One way stream to receive data from server
     private ObjectInputStream inputStream;
+
+    // Thread for reading from server
     private InputHandler inputHandler;
 
-    public Client(int port, String host) {
+    // Callback used to send received data from server back to JFrame, which in turn 
+    // transfers it to panel for drawing
+    private CallBack callBack;
+
+
+    public Client(int port, String host, CallBack callBack) {
+        this.callBack = callBack;
         try {
             connToServer = new Socket(host, port);
         } catch(IOException e) {
@@ -31,6 +47,7 @@ public class Client{
         }
     }
 
+    // Thread for receiving data from server
     private class InputHandler extends Thread{
         private boolean should_run = true;
 
@@ -54,6 +71,7 @@ public class Client{
         }
     }
 
+    // Closes connection to server
     public void closeConnection() {
         System.out.printf("Closing connection\n");
         try {
@@ -65,14 +83,17 @@ public class Client{
         }
     }
 
+    // Calls callback function to give the newly received data from server to the JFrame
     private void gotNewMessage(ServerMessage message) {
-        // @ann1k43 und @E-Hippo euer job :D
-        for (Coordinate coord : message.coords) {
-            System.out.printf("x: %.0f; y: %.0f ||  ", coord.x, coord.y);
+        Coordinate[] positions = new Coordinate[message.coords.size()];
+        for (int i = 0; i < message.coords.size(); i++) {
+            positions[i] = message.coords.get(i);
         }
-        System.out.printf("\n");
+        callBack.call(positions, message.coords.get(message.client_id));
     }
 
+    // Method that gets called when JFrame moves
+    // Sends new position to server
     public void clientPosChanged(double x, double y) {
         try {
             outputStream.writeObject(new ClientMessage(x, y));

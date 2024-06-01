@@ -2,6 +2,7 @@ package com.tg3000.backend;
 
 import java.io.Serializable;
 
+// Simple class representing a Coordinate
 public class Coordinate implements Serializable{
     public double x;
     public double y;
