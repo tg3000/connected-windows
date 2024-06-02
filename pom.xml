@@ -6,7 +6,7 @@
 
     <groupId>com.tg3000</groupId>
     <artifactId>connected-windows</artifactId>
-    <version>1.0</version>
+    <version>600x600</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
