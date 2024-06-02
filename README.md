@@ -15,6 +15,7 @@ or\
 double click the jar files in target.
 
 ## Class Diagrams
-![Before](https://github.com/tg3000/connected-windows/blob/master/readme_resources/class_diagram_before.png)
-
-![After](https://github.com/tg3000/connected-windows/blob/master/readme_resources/class_diagram_after.png)
+Before
+![](https://github.com/tg3000/connected-windows/blob/master/readme_resources/class_diagram_before.png){width=25% height=25%}
+After
+![](https://github.com/tg3000/connected-windows/blob/master/readme_resources/class_diagram_after.png){width=25% height=25%}
