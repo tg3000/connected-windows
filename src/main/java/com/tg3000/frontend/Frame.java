@@ -13,8 +13,8 @@ public class Frame extends JFrame {
     Coordinate ownPos;
     Panel panel;
 
-    public static final int WIDTH = 600;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 200;
+    public static final int HEIGHT = 200;
 
     public Frame(int port, String host) {
         super();
