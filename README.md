@@ -7,7 +7,7 @@ This open source project was developed by students for a school project. It's a 
 
 ## How to run
 
-Make sure you have [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) installed.\
+Make sure you have [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) installed.
 
 Run following commands, inside of target folder, in a bash of your choice:\
 600x600 pixels: `java -jar connected-windows-600x600.jar`\
@@ -18,7 +18,7 @@ You can also add a port and a host as follows:\
 `java -jar connected-windows-200x200.jar 8080 localhost`\
 \
 or\
-execute the jar files with the Java Runtime directly.\
+execute the jar files with the Java Runtime directly.
 
 ## Class Diagrams
 Before\
