@@ -30,10 +30,20 @@ public class Panel extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawOval(getSize().width / 2 - circleWidth / 2, getSize().height / 2 - circleHeight / 2, circleWidth, circleHeight);
+        for (int i = 0; i < coordinates.length; i++) {
+            Coordinate circle1Absolute = coordinates[i];
+            int x1 = (int) (circle1Absolute.x - ownPos.x) + getSize().width / 2;
+            int y1 = (int) (circle1Absolute.y - ownPos.y) + getSize().height / 2;
 
-        for(Coordinate coordinate : coordinates) {
-            g.drawLine(getSize().width / 2, getSize().height / 2, (int) (coordinate.x - ownPos.x) + getSize().width / 2, (int) (coordinate.y - ownPos.y) + getSize().height / 2);
+            g.drawOval(x1 - circleWidth / 2, y1 - circleHeight / 2, circleWidth, circleHeight);
+
+            for (int j = 1; j < coordinates.length; j++) {
+                Coordinate circle2Absolute = coordinates[j];
+                int x2 = (int) (circle2Absolute.x - ownPos.x) + getSize().width / 2;
+                int y2 = (int) (circle2Absolute.y - ownPos.y) + getSize().height / 2;
+
+                g.drawLine(x1, y1, x2, y2);
+            }
         }
     }
 }
