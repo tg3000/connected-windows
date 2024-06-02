@@ -6,12 +6,12 @@
 ## How to run
 Make sure you have [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) installed
 
-run following commands, inside of target folder, in any bash:
-600x600 pixel: `java -jar connected-windows-600x600.jar`
-300x300 pixel: `java -jar connected-windows-300x300.jar`
-200x200 pixel: `java -jar connected-windows-200x200.jar`
-
-or
+run following commands, inside of target folder, in any bash:__
+600x600 pixel: `java -jar connected-windows-600x600.jar`__
+300x300 pixel: `java -jar connected-windows-300x300.jar`__
+200x200 pixel: `java -jar connected-windows-200x200.jar`__
+__
+or__
 double click the jar files in target.
 
 ## Class Diagrams
